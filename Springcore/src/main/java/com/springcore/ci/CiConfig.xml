@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+<!-- This is for constructor injection, where parameterized constructors are used for data adding. Similar to p tag we have c tag for constructor injection.
+	Like property tag for property injection we have constructor-arg tag for constructor injection	-->
+	<bean class="com.springcore.ci.Certi" name="aref" c:name="Java"/>
+<!--
+		<constructor-arg value="Java" /> 2nd way
+  		<constructor-arg>
+		<value>Java</value>1st way
+		</constructor-arg>
+	</bean>
+-->
+	<bean class="com.springcore.ci.Normal" name="nref" c:id="12" c:name="Rudra" c:certi-ref="aref"/>
+<!-- 
+		<bean class="com.springcore.ci.Normal" name="nref">
+		<constructor-arg value="122" type="int" />
+		<constructor-arg value="Rudra" />  
+	</bean>
+-->
+<!-- There's is no need to specify int type, spring is smart enough to recognize it, sometimes ambiguity occurs that's why we specify -->
+	<bean class="com.springcore.ci.Addition" name="href"> 
+		<constructor-arg value="12" type="int" index="1"/>
+		<constructor-arg value="13" type="int" index="0"/>
+	</bean>
+</beans>

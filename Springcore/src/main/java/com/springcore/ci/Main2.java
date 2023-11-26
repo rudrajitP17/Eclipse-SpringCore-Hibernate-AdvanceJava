@@ -1,0 +1,14 @@
+package com.springcore.ci;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ApplicationContext context=new ClassPathXmlApplicationContext("com/springcore/ci/CiConfig.xml");
+		Addition a=(Addition)context.getBean("href");
+		a.add();
+	}
+}

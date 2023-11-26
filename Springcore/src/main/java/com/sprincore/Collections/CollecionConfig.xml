@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- Here you should specify package structure using . -->
+	<bean class="com.sprincore.Collections.Emp" name="emp1">
+		<property name="name" value="Ram"></property>
+		<property name="phones">
+			<!-- If the list is empty you can specify empty list like this <list></list>, if the there one value in list you can specify only value <property><value>..<value></property> no need of list tag -->
+			<list>
+				<value>213</value>
+				<value>213</value>
+				<value>214</value>
+			</list>
+		</property>
+		<property name="city">
+			<set>
+				<value>Kol</value>
+				<value>Pol</value>
+			</set>
+		</property>
+		<property name="courses">
+			<map>
+				<entry key="java" value="1 hr"/>
+				<entry key="c" value="2hr"/>
+			</map>
+		</property>
+	</bean>
+	
+</beans>

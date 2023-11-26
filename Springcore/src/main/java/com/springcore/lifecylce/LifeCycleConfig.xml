@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--  <context:annotation-config></context:annotation-config>-->
+<!-- We use this tag, when we are configuring init and destroy via annotations. This tag includes all annotations -->
+
+<bean class="com.springcore.lifecylce.Snacks" name="s1" init-method="init" destroy-method="destroy">
+	<property name="price" value="10"/>
+</bean>
+<!-- * we should change the init-method="..." and destroy-method=".." -->
+
+<bean class="com.springcore.lifecylce.Drinks" name="p1">
+	<property name="price" value="20" />
+</bean>
+
+<bean class="com.springcore.lifecylce.Example" name="e1">
+	<property name="price" value="30"></property>
+</bean>
+
+<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+<!-- With the help of this bean class initialise only those two annotations not the rest -->
+</beans>

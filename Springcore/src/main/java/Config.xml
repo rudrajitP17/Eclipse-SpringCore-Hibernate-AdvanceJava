@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+<!--This is the first bean we created to pass one data. This is done via setter injection i.e. via setter methods in Student class-->
+<bean class="com.springcore.Student" name="student1">
+	<property name="StudentId">
+		<value>1</value>
+	</property>
+	<property name="StudentName">
+		<value>Rudra</value>
+	</property>
+	<property name="StudentCity">
+		<value>Kolkata</value>
+	</property>
+</bean>
+<!-- Another way of using value element -->
+<bean class="com.springcore.Student" name="student2">
+	<property name="StudentId" value="12" />
+	<property name="StudentName" value="Tudra"/>
+	<property name="StudentCity" value="Pol"/>
+</bean>
+<!-- Using p-schema to add data -->
+<bean class="com.springcore.Student" name="student3" p:StudentId="123" p:StudentName="Dudra" p:StudentCity="Dol"/>
+</beans>

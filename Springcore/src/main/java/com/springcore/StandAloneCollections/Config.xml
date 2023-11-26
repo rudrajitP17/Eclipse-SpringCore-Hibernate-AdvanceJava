@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- With the help of util schema we can define standalone collections. Standalone collections are globally
+	defined collections which can be used in various properties. We can define a specific class also for these 
+	collections unlike the normal collections where it is always derived from a specific class -->
+	
+	<util:list list-class="java.util.LinkedList" id="persons1">
+		<value>Raman</value>
+		<value>Laman</value>
+		<value>Baman</value>
+	</util:list>
+	<util:map map-class="java.util.HashMap" id="fee1">
+		<entry key="Java" value="1"/>
+		<entry key="Python" value="2"/>
+		<entry key="c" value="3"/>
+	</util:map>
+	<util:properties id="db1">
+		<prop key="db">mydb</prop>
+		<prop key="username">Rudra</prop>
+	</util:properties>
+	<!-- Syntax is very important for StandAlone Collections. util:* tells you the type of collection 
+	you want to use, *-class helps you specify the class and id is used for referenceing -->
+	<bean class="com.springcore.StandAloneCollections.Person" name="p1">
+		<property name="friends" ref="persons1"/>
+		<property name="fees" ref="fee1"/>
+		<property name="db" ref="db1"/>
+	</bean>
+</beans>
